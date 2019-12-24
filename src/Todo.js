@@ -4,7 +4,7 @@ import './Todo.css';
 class Todo extends Component {
     render(){
         return(
-            <div> Todo Item </div>
+            <div className='todo-item'> {this.props.todoItem} </div>
             )
     }
 }

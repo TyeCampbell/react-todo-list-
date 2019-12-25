@@ -11,7 +11,7 @@ class TodoList extends Component {
 
         return(
             <div>
-                <Todo todoItem='Get This Done'/> 
+                <Todo todoItem='Get This Done'/>
             </div>
         )
     }

@@ -13,7 +13,6 @@ class TodoForm extends Component {
         evt.preventDefault();
         
         //add to ToDo List State array
-        alert('form submitted')
         this.props.addTodo(this.state.newTodoItem);
 
         this.setState({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import uuid from 'uuid/v4';
 
 class TodoList extends Component {
     
@@ -14,8 +15,16 @@ class TodoList extends Component {
     }
 
     addTodo(item) {
+        
+        const newID = uuid();
+
         this.setState(st => ({
-            list: st.list.concat({todo: item, done: false})
+            list: st.list.concat({
+                todo: item, 
+                done: false, 
+                id: newID,
+                key: newID, 
+            })
         }))
     }
 

@@ -1,0 +1,23 @@
+.todo-form {
+    width: 300px; 
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 20px 10px 20px;
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white; 
+    background-color: lightseagreen;
+}
+
+.todo-form label {
+    clear: right;
+}
+
+.todo-form button {
+    margin-left: 10px;
+    height: 35px;   
+    border: 1px solid white;
+    background-color: lightseagreen;
+    color: white;
+}

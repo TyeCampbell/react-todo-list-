@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import './TodoForm.css';
 import uuid from 'uuid/v4';
 
 class TodoList extends Component {

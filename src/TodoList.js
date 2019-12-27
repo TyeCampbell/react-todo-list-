@@ -28,10 +28,20 @@ class TodoList extends Component {
         }))
     }
 
+    removeTodo(id) {
+        this.setState({list: this.state.list.filter(item => item.id !== id)})
+    }
+
     render() {
 
+        //Iterates over each Todo item in the state.list array and builds each Todo item to render below        
        const listTodos = this.state.list.map(item => (
-        <Todo todoItem={item.todo} done={item.todo}/>
+        <Todo 
+            todoItem={item.todo}
+            done={item.done}
+            id={item.id}
+            removeTodo={() => this.removeTodo(item.id)}
+            />
         ))
 
 

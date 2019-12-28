@@ -23,7 +23,7 @@ class TodoForm extends Component {
 
     handleChange(evt) {
         this.setState({
-            [evt.target.name]: evt.target.value,  
+            [evt.target.name]: evt.target.value  
         })
     }
 

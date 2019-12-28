@@ -36,12 +36,14 @@ class TodoList extends Component {
 
     render() {
 
-        //Iterates over each Todo item in the state.list array and builds each Todo item to render below        
+        //Iterates over each Todo item in state.list array and builds each Todo item to render below        
        const listTodos = this.state.list.map(item => (
         <Todo 
-            todoItem={item.todo}
+            todo={item.todo}
             done={item.done}
+            isEditing={item.isEditing}
             id={item.id}
+            key={item.key}
             removeTodo={() => this.removeTodo(item.id)}
             />
         ))

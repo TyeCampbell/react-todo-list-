@@ -34,6 +34,11 @@ class TodoList extends Component {
         this.setState({list: this.state.list.filter(item => item.id !== id)})
     }
 
+    changeEditStatus(bool) {
+        const itemBool = {...this.state.list}
+        console.log(itemBool[0].todo)
+    }
+
     render() {
 
         //Iterates over each Todo item in state.list array and builds each Todo item to render below        
@@ -45,6 +50,7 @@ class TodoList extends Component {
             id={item.id}
             key={item.key}
             removeTodo={() => this.removeTodo(item.id)}
+            changeEditStatus={() => this.changeEditStatus(item.isEditing)}
             />
         ))
 

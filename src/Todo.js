@@ -51,7 +51,7 @@ class Todo extends Component {
         return(
             <div className='todo-item'> 
             {displayItemState} 
-            <span className='todo-icons'><i className="fas fa-pen" onClick={this.props.editTodo}></i> <i className="fas fa-trash" onClick={this.props.removeTodo}></i></span>
+            <span className='todo-icons'><i className="fas fa-pen" onClick={this.props.changeEditStatus}></i> <i className="fas fa-trash" onClick={this.props.removeTodo}></i></span>
             </div>
             )
     }

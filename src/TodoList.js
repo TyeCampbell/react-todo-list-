@@ -10,7 +10,7 @@ class TodoList extends Component {
         super(props);
 
         this.state = {
-            list: [{todo: 'Get Haircut', done: false}, {todo: 'Laundry', done: false}, {todo: 'Milk the Cat', done: false}, {todo: 'Wash the Car', done: false},],
+            list: [{todo: 'Get Haircut', done: false, isEditing: false, id: '00123', key: '00123'}, {todo: 'Laundry', done: false, isEditing: false, id: '00124', key: '00124'}, {todo: 'Milk the Cat', done: false,  isEditing: false, id: '001255', key: '001255'}, {todo: 'Wash the Car', done: false,  isEditing: false, id: '001266', key: '001266'},],
         }
         this.addTodo = this.addTodo.bind(this);
     }
@@ -22,7 +22,8 @@ class TodoList extends Component {
         this.setState(st => ({
             list: st.list.concat({
                 todo: item, 
-                done: false, 
+                done: false,
+                isEditing: false, 
                 id: newID,
                 key: newID, 
             })

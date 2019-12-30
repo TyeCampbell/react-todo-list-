@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import TodoHeader from './TodoHeader';
 import './TodoList.css';
 import uuid from 'uuid/v4';
 
@@ -57,6 +58,7 @@ class TodoList extends Component {
         return (
 
             <div className='todolist-container'>
+                <TodoHeader/>
                 {listTodos}
                 <TodoForm addTodo={this.addTodo}/>
             </div>

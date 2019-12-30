@@ -8,9 +8,8 @@
     padding: 10px 20px 10px 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: lightseagreen;
+    background-color: #D64129;
     color: white;
-    border: 1px solid white;
 }
 
 @media screen and (max-width: 900px) {
@@ -38,4 +37,9 @@
 .todolist-header p {
     margin-top: 2px;
     font-size: .8em;
+}
+
+.todolist-header hr {
+    border: .5px solid white;
+    margin-top: 2px;
 }

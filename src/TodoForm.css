@@ -11,7 +11,7 @@
     text-align: left;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white; 
-    background-color: lightseagreen;
+    background-color: #D64129;
 }
 
 @media screen and (max-width: 900px) {
@@ -51,6 +51,6 @@
     margin-left: 10px;
     height: 35px;   
     border: 1px solid white;
-    background-color: lightseagreen;
+    background-color: #D64129;
     color: white;
 }

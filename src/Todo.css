@@ -14,8 +14,9 @@
     text-align: left;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white; 
-    background-color: lightseagreen;
-    border-bottom: 2px solid white;
+    background-color: #E86651;
+    border-top: 2px solid #D64129;
+    border-bottom: 2px solid #D64129;
 }
 
 @media screen and (max-width: 900px) {

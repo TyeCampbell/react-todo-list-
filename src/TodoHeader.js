@@ -8,6 +8,7 @@ class TodoHeader extends Component {
                 <div className='todolist-header'>
                     <h1>My Todo List</h1>
                     <p>A simple React App</p>
+                    <hr/>
                 </div>
             </div>
         )

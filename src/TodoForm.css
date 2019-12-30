@@ -1,16 +1,53 @@
+.todo-form-container {
+    display: flex;
+}
+
 .todo-form {
-    width: 300px; 
-    height: 50px;
+    flex-basis: 30%; 
+    height: 60px;
     margin-left: auto;
     margin-right: auto;
-    padding: 15px 20px 10px 20px;
+    padding: 15px 20px 20px 20px;
     text-align: left;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white; 
     background-color: lightseagreen;
 }
 
-.todo-form button {
+@media screen and (max-width: 900px) {
+    .todo-form {
+        flex-basis: 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .todo-form {
+        flex-basis: 60%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .todo-form {
+        flex-basis: 100%;
+    }
+}
+
+.todo-form label {
+    display: flex;
+    font-size: larger;
+    padding-bottom: 5px;
+}
+
+.todo-form-inputBTN-container {
+    display: flex;
+}
+
+.todo-form-inputBTN-container input {
+    flex-grow: 5;
+}
+
+.todo-form-inputBTN-container button {
+    flex-grow: 1;
     margin-left: 10px;
     height: 35px;   
     border: 1px solid white;

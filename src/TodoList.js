@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
-import './TodoForm.css';
+import './TodoList.css';
 import uuid from 'uuid/v4';
 
 class TodoList extends Component {
@@ -34,8 +34,8 @@ class TodoList extends Component {
         this.setState({list: this.state.list.filter(item => item.id !== id)})
     }
 
-    changeEditStatus(bool) {
-
+    changeEditStatus(id, bool) {
+       alert(`The id: ${id} is set to ${bool}`)
     }
 
     render() {
@@ -49,14 +49,14 @@ class TodoList extends Component {
             id={item.id}
             key={item.key}
             removeTodo={() => this.removeTodo(item.id)}
-            changeEditStatus={() => this.changeEditStatus(item.isEditing)}
+            changeEditStatus={() => this.changeEditStatus(item.id, item.isEditing)}
             />
         ))
 
 
         return (
 
-            <div>
+            <div className='todolist-container'>
                 {listTodos}
                 <TodoForm addTodo={this.addTodo}/>
             </div>

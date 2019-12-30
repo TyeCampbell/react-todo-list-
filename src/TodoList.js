@@ -35,8 +35,7 @@ class TodoList extends Component {
     }
 
     changeEditStatus(bool) {
-        const itemBool = {...this.state.list}
-        console.log(itemBool[0].todo)
+
     }
 
     render() {

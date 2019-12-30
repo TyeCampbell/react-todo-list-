@@ -33,7 +33,15 @@ class Todo extends Component {
 
         if (this.props.isEditing === false) {
             
-            displayItemState = this.props.todo;
+        displayItemState = 
+            
+            <div className='todo-item-container'>
+                <div className='todo-item-name'>{this.props.todo}</div>
+                <div className='todo-item-icons'> 
+                    <i className="fas fa-pen" onClick={this.props.changeEditStatus}></i> 
+                    <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
+                </div>
+            </div>
         }
 
         if (this.props.isEditing === true) {
@@ -41,17 +49,20 @@ class Todo extends Component {
             
             displayItemState =
 
-            <form onSubmit={this.handleSubmit}>
-                <input value={this.state.editingTodo} id='editingTodo' name='editingTodo' onChange={this.handleChange}></input> 
-                <button>Save</button>
-            </form>
-
+            <div className='todo-item-container'>
+                <form>
+                    <input value={this.state.editingTodo} id='editingTodo' name='editingTodo' onChange={this.handleChange}></input> 
+                </form>
+                <div className='todo-item-icons'> 
+                    <i className="fas fa-save" onClick={this.handleSubmit}></i> 
+                    <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
+                </div>
+            </div>
         }
 
         return(
             <div className='todo-item'> 
             {displayItemState} 
-            <span className='todo-icons'><i className="fas fa-pen" onClick={this.props.changeEditStatus}></i> <i className="fas fa-trash" onClick={this.props.removeTodo}></i></span>
             </div>
             )
     }

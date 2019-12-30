@@ -1,5 +1,12 @@
 .todo-item {
-    width: 300px; 
+    display: flex;
+}
+
+.todo-item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-basis: 30%;
     height: 25px;
     margin-left: auto;
     margin-right: auto;
@@ -11,10 +18,37 @@
     border-bottom: 2px solid white;
 }
 
-.todo-icons {
-    float: right;
+@media screen and (max-width: 900px) {
+    .todo-item-container {
+        flex-basis: 40%;
+    }
 }
 
-.todo-icons i {
-    margin: 0px 2px 0px 2px;
+@media screen and (max-width: 700px) {
+    .todo-item-container {
+        flex-basis: 60%;
+    }
 }
+
+@media screen and (max-width: 460px) {
+    .todo-item-container {
+        flex-basis: 100%;
+    }
+}
+
+.todo-item-name, .todo-item-container form {
+    flex-grow: 5;
+}
+
+.todo-item-container input {
+    width: 90%;
+    height: 70%;
+    border: 1px solid white;
+}
+
+
+.todo-item-icons i {
+    flex-grow: 1;
+    padding: 0px 4px;
+}
+

@@ -5,15 +5,18 @@ import TodoHeader from './TodoHeader';
 import './TodoList.css';
 import uuid from 'uuid/v4';
 
+const testDataAPI = [{todo: 'Get Haircut', done: false, id: '00123', key: '00123'}, {todo: 'Laundry', done: false, id: '00124', key: '00124'}, {todo: 'Milk the Cat', done: false,  id: '001255', key: '001255'}, {todo: 'Wash the Car', done: false,  id: '001266', key: '001266'}];
+
 class TodoList extends Component {
     
     constructor(props) {
         super(props);
 
         this.state = {
-            list: [{todo: 'Get Haircut', done: false, isEditing: false, id: '00123', key: '00123'}, {todo: 'Laundry', done: false, isEditing: false, id: '00124', key: '00124'}, {todo: 'Milk the Cat', done: false,  isEditing: false, id: '001255', key: '001255'}, {todo: 'Wash the Car', done: false,  isEditing: false, id: '001266', key: '001266'},],
+            list: [],
         }
         this.addTodo = this.addTodo.bind(this);
+        this.updateTodo = this.updateTodo.bind(this);
     }
 
     addTodo(item) {
@@ -24,7 +27,6 @@ class TodoList extends Component {
             list: st.list.concat({
                 todo: item, 
                 done: false,
-                isEditing: false, 
                 id: newID,
                 key: newID, 
             })
@@ -35,8 +37,16 @@ class TodoList extends Component {
         this.setState({list: this.state.list.filter(item => item.id !== id)})
     }
 
-    changeEditStatus(id, bool) {
-       alert(`The id: ${id} is set to ${bool}`)
+    updateTodo(id, updatedTodo) {
+
+        const updatedTodoList = this.state.list.map(item => {
+            if (item.id === id) { 
+                return {...item, todo: updatedTodo}
+            } 
+            return item;
+        });
+        this.setState({list: updatedTodoList});
+    
     }
 
     render() {
@@ -46,11 +56,10 @@ class TodoList extends Component {
         <Todo 
             todo={item.todo}
             done={item.done}
-            isEditing={item.isEditing}
             id={item.id}
             key={item.key}
             removeTodo={() => this.removeTodo(item.id)}
-            changeEditStatus={() => this.changeEditStatus(item.id, item.isEditing)}
+            updateTodo={this.updateTodo}
             />
         ))
 

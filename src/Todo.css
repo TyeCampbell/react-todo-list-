@@ -19,6 +19,10 @@
     border-bottom: 2px solid #D64129;
 }
 
+.todo-item-done {
+    color: lightgray;
+}
+
 @media screen and (max-width: 900px) {
     .todo-item-container {
         flex-basis: 40%;

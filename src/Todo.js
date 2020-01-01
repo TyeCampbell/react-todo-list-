@@ -5,19 +5,18 @@ class Todo extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {editingTodo: ''};
-
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {isEditing: false, editingTodo: this.props.todo};
+        this.handleUpdate = this.handleUpdate.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.editTodo = this.editTodo.bind(this);
     }
 
-    handleSubmit(evt){
+    handleUpdate(evt){
         evt.preventDefault();
 
         //Pass item up to TodoList
-        console.log(`Passing up change: ${this.state.editingTodo}`)
-
-        this.setState({editingTodo: ''})
+        this.props.updateTodo(this.props.id, this.state.editingTodo);
+        this.setState({isEditing: false})
     }
 
     handleChange(evt){
@@ -26,35 +25,40 @@ class Todo extends Component {
         });
     }
 
+    editTodo() {
+                
+        this.setState({ isEditing: !this.state.isEditing})
+    }
+
 
     render(){
         
         let displayItemState; 
 
-        if (this.props.isEditing === false) {
+        if (this.state.isEditing === false) {
             
         displayItemState = 
             
             <div className='todo-item-container'>
                 <div className='todo-item-name'>{this.props.todo}</div>
                 <div className='todo-item-icons'> 
-                    <i className="fas fa-pen" onClick={this.props.changeEditStatus}></i> 
+                    <i className="fas fa-pen" onClick={this.editTodo}></i> 
                     <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
                 </div>
             </div>
         }
 
-        if (this.props.isEditing === true) {
+        if (this.state.isEditing === true) {
             //show editing input and make pencil icon disappear
             
             displayItemState =
 
             <div className='todo-item-container'>
-                <form>
-                    <input value={this.state.editingTodo} id='editingTodo' name='editingTodo' onChange={this.handleChange}></input> 
+                <form onSubmit={this.handleUpdate}>
+                    <input value={this.state.editingTodo} type='text' id='editingTodo' name='editingTodo' onChange={this.handleChange}></input> 
                 </form>
                 <div className='todo-item-icons'> 
-                    <i className="fas fa-save" onClick={this.handleSubmit}></i> 
+                    <i className="fas fa-save" onClick={this.handleUpdate}></i> 
                     <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
                 </div>
             </div>

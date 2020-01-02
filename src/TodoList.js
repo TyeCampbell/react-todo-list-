@@ -13,7 +13,7 @@ class TodoList extends Component {
         super(props);
 
         this.state = {
-            list: [{todo: 'Get Haircut', id: '00123', key: '00123'}, {todo: 'Laundry', id: '00124', key: '00124'}, {todo: 'Milk the Cat',  id: '001255', key: '001255'}, {todo: 'Wash the Car',  id: '001266', key: '001266'}],
+            list: [],
         }
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);

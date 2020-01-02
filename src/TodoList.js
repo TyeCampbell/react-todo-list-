@@ -5,7 +5,7 @@ import TodoHeader from './TodoHeader';
 import './TodoList.css';
 import uuid from 'uuid/v4';
 
-const testDataAPI = [{todo: 'Get Haircut', done: false, id: '00123', key: '00123'}, {todo: 'Laundry', done: false, id: '00124', key: '00124'}, {todo: 'Milk the Cat', done: false,  id: '001255', key: '001255'}, {todo: 'Wash the Car', done: false,  id: '001266', key: '001266'}];
+const testDataAPI = [{todo: 'Get Haircut', id: '00123', key: '00123'}, {todo: 'Laundry', id: '00124', key: '00124'}, {todo: 'Milk the Cat',  id: '001255', key: '001255'}, {todo: 'Wash the Car',  id: '001266', key: '001266'}];
 
 class TodoList extends Component {
     
@@ -13,7 +13,7 @@ class TodoList extends Component {
         super(props);
 
         this.state = {
-            list: [],
+            list: [{todo: 'Get Haircut', id: '00123', key: '00123'}, {todo: 'Laundry', id: '00124', key: '00124'}, {todo: 'Milk the Cat',  id: '001255', key: '001255'}, {todo: 'Wash the Car',  id: '001266', key: '001266'}],
         }
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
@@ -26,7 +26,6 @@ class TodoList extends Component {
         this.setState(st => ({
             list: st.list.concat({
                 todo: item, 
-                done: false,
                 id: newID,
                 key: newID, 
             })
@@ -55,7 +54,6 @@ class TodoList extends Component {
        const listTodos = this.state.list.map(item => (
         <Todo 
             todo={item.todo}
-            done={item.done}
             id={item.id}
             key={item.key}
             removeTodo={() => this.removeTodo(item.id)}

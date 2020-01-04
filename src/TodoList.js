@@ -12,12 +12,11 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            list: [],
-        }
+        this.state = {list: [] }
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
     }
+
 
     addTodo(item) {
         
@@ -30,6 +29,7 @@ class TodoList extends Component {
                 key: newID, 
             })
         }))
+
     }
 
     removeTodo(id) {
@@ -46,6 +46,18 @@ class TodoList extends Component {
         });
         this.setState({list: updatedTodoList});
     
+    }
+
+    componentDidUpdate() {
+        localStorage.setItem('list', JSON.stringify(this.state.list))
+    }
+
+    componentDidMount() {
+        const savedList = localStorage.getItem('list')
+
+        if (savedList !== null) {
+            this.setState({list: JSON.parse(savedList)})
+        }
     }
 
     render() {

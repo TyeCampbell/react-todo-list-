@@ -6,11 +6,10 @@ class Todo extends Component {
     constructor(props) {
         super(props);
         //this.props.todo utilizes super(props) to allowing this prop to be accessed
-        this.state = {isEditing: false, editingTodo: this.props.todo, done: false,};
+        this.state = {isEditing: false, editingTodo: this.props.todo,};
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.editTodo = this.editTodo.bind(this);
-        this.markAsDone = this.markAsDone.bind(this);
     }
 
     handleUpdate(evt){
@@ -31,15 +30,12 @@ class Todo extends Component {
         this.setState({ isEditing: !this.state.isEditing})
     }
 
-    markAsDone() {
-        this.setState({done: !this.state.done})
-    }
 
     render(){
         
         let isDone = ''; 
 
-        if (this.state.done === true) {
+        if (this.props.done === true) {
             isDone = 'todo-item-done'
         }
 
@@ -50,7 +46,7 @@ class Todo extends Component {
         displayItemState = 
             
             <div className={`todo-item-container ${isDone}`}>
-                <div className='todo-item-name'><span onClick={this.markAsDone}>{this.props.todo}</span></div>
+                <div className='todo-item-name'><span onClick={this.props.isDone}>{this.props.todo}</span></div>
                 <div className='todo-item-icons'> 
                     <i className="fas fa-pen" onClick={this.editTodo}></i> 
                     <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 

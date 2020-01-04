@@ -26,7 +26,8 @@ class TodoList extends Component {
             list: st.list.concat({
                 todo: item, 
                 id: newID,
-                key: newID, 
+                key: newID,
+                done: false, 
             })
         }))
 
@@ -48,10 +49,26 @@ class TodoList extends Component {
     
     }
 
+    isDone(id, bool) {             
+    
+        const updatedTodoList = this.state.list.map(item => {
+            if (item.id === id) {
+                return {...item, done: !bool}
+            }
+            return item;
+        });
+        
+        this.setState({ list: updatedTodoList})
+    }
+
+
+    //stores state to local storage
     componentDidUpdate() {
         localStorage.setItem('list', JSON.stringify(this.state.list))
     }
 
+
+    //retrieves the data from local storage if it exists 
     componentDidMount() {
         const savedList = localStorage.getItem('list')
 
@@ -68,7 +85,9 @@ class TodoList extends Component {
             todo={item.todo}
             id={item.id}
             key={item.key}
+            done={item.done}
             removeTodo={() => this.removeTodo(item.id)}
+            isDone={() => this.isDone(item.id, item.done)}
             updateTodo={this.updateTodo}
             />
         ))

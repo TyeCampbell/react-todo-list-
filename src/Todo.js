@@ -41,20 +41,7 @@ class Todo extends Component {
 
         let displayItemState; 
 
-        if (this.state.isEditing === false) {
-            
-        displayItemState = 
-            
-            <div className={`todo-item-container ${isDone}`}>
-                <div className='todo-item-name'><span onClick={this.props.isDone}>{this.props.todo}</span></div>
-                <div className='todo-item-icons'> 
-                    <i className="fas fa-pen" onClick={this.editTodo}></i> 
-                    <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
-                </div>
-            </div>
-        }
-
-        if (this.state.isEditing === true) {
+        if (this.state.isEditing) {
             //show editing input and make pencil icon disappear
             
             displayItemState =
@@ -68,7 +55,18 @@ class Todo extends Component {
                     <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
                 </div>
             </div>
-        }
+        } else {
+            
+            displayItemState = 
+                
+                <div className={`todo-item-container ${isDone}`}>
+                    <div className='todo-item-name'><span onClick={this.props.isDone}>{this.props.todo}</span></div>
+                    <div className='todo-item-icons'> 
+                        <i className="fas fa-pen" onClick={this.editTodo}></i> 
+                        <i className="fas fa-trash" onClick={this.props.removeTodo}></i> 
+                    </div>
+                </div>
+            }
 
         return(
             <div className='todo-item'> 

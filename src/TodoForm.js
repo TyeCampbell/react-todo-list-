@@ -19,8 +19,7 @@ class TodoForm extends Component {
         this.setState({
             newTodoItem: '',
         })
-
-    }
+     }
 
     handleChange(evt) {
         this.setState({

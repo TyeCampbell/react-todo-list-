@@ -11,17 +11,14 @@ class TodoList extends Component {
     
     constructor(props) {
         super(props);
-
         this.state = {list: [] }
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
     }
 
 
-    addTodo(item) {
-        
+    addTodo(item) {       
         const newID = uuid();
-
         this.setState(st => ({
             list: st.list.concat({
                 todo: item, 
@@ -30,7 +27,6 @@ class TodoList extends Component {
                 done: false, 
             })
         }))
-
     }
 
     removeTodo(id) {
@@ -38,7 +34,6 @@ class TodoList extends Component {
     }
 
     updateTodo(id, updatedTodo) {
-
         const updatedTodoList = this.state.list.map(item => {
             if (item.id === id) { 
                 return {...item, todo: updatedTodo}
@@ -46,18 +41,15 @@ class TodoList extends Component {
             return item;
         });
         this.setState({list: updatedTodoList});
-    
     }
 
-    isDone(id, bool) {             
-    
+    isDone(id) {             
         const updatedTodoList = this.state.list.map(item => {
             if (item.id === id) {
-                return {...item, done: !bool}
+                return {...item, done: !item.done}
             }
             return item;
-        });
-        
+        });    
         this.setState({ list: updatedTodoList})
     }
 
@@ -87,7 +79,7 @@ class TodoList extends Component {
             key={item.key}
             done={item.done}
             removeTodo={() => this.removeTodo(item.id)}
-            isDone={() => this.isDone(item.id, item.done)}
+            isDone={() => this.isDone(item.id)}
             updateTodo={this.updateTodo}
             />
         ))
